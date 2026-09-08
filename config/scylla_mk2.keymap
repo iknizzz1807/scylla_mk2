@@ -8,55 +8,31 @@
 #include <dt-bindings/zmk/bt.h>
 #include <dt-bindings/zmk/keys.h>
 
-#define DEF 0
-#define NAV 1
-#define NUM 2
+#define F 1
 
 / {
-    combos {
-        compatible = "zmk,combos";
-
-        // Thumb combos
-        // Brackets - Ngoặc vuông []
-        // Braces - Ngoặc nhọn {}
-        // Parentheses - Ngoặc tròn ()
-        // Special chars
-        // Word navigation - Windows (Layer 0)
-        // Word navigation - Mac (Layer 1)
-        // Arrow keys
-
-        tru {
-            bindings = <&kp MINUS>;
-            key-positions = <6 7>;
-        };
-    };
-
     keymap {
         compatible = "zmk,keymap";
-
-        // Thumb: 3 phim vong tren  |  2 phim moi hang duoi
-        // trai: hang tren trai->phai = 50 51 52 | hang duoi = 49 48
-        // phai: hang tren trai->phai = 53 54 55 | hang duoi = 57 56
 
         scylla_mk2_layer {
             label = "Scylla";
             bindings = <
-&kp ESC         &kp N1    &kp N2    &kp N3     &kp N4     &kp N5   &kp N6    &kp N7   &kp N8       &kp N9     &kp N0    &kp BSPC
-&kp TAB         &kp Q     &kp W     &kp E      &kp R      &kp T    &kp Y     &kp U    &kp I        &kp O      &kp P     &kp BSLH
-&kp LEFT_SHIFT  &kp A     &kp S     &kp D      &kp F      &kp G    &kp H     &kp J    &kp K        &kp L      &kp SEMI  &kp SQT
-&kp LCTRL       &kp Z     &kp X     &kp C      &kp V      &kp B    &kp N     &kp M    &kp COMMA    &kp DOT    &kp FSLH  &kp RSHFT
-                &kp LALT  &kp LGUI  &kp LCTRL  &kp SPACE  &kp TAB  &kp BSPC  &kp DEL  &lt 1 SPACE  &kp ENTER  &kp ESC
+&kp GRAVE       &kp N1     &kp N2       &kp N3        &kp N4        &kp N5   &kp N6     &kp N7     &kp N8       &kp N9     &kp N0    &kp BACKSPACE
+&kp TAB         &kp Q      &kp W        &kp E         &kp R         &kp T    &kp Y      &kp U      &kp I        &kp O      &kp P     &kp BSLH
+&kp CAPSLOCK    &kp A      &kp S        &kp D         &kp F         &kp G    &kp H      &kp J      &kp K        &kp L      &kp SEMI  &kp SQT
+&kp LEFT_SHIFT  &kp Z      &kp X        &kp C         &kp V         &kp B    &kp N      &kp M      &kp COMMA    &kp DOT    &kp FSLH  &kp RSHFT
+                &kp LGUI   &kp LALT     &kp LEFT_SHIFT &kp LCTRL     &kp ESC  &kp BSPC   &kp SPACE  &mo F        &kp ENTER  &kp DELETE
             >;
         };
 
-        number_layer {
-            label = "Number";
+        fn_layer {
+            label = "Fn";
             bindings = <
-&to 0         &kp F1        &kp F2        &kp F3          &kp F4  &kp F5          &kp F6  &kp F7        &kp F8        &kp F9        &kp F10    &kp F11
-&bt BT_SEL 0  &bt BT_SEL 1  &bt BT_SEL 2  &bt BT_SEL 3    &trans  &bt BT_CLR_ALL  &trans  &kp NUMBER_1  &kp NUMBER_2  &kp NUMBER_3  &kp MINUS  &kp F12
-&trans        &trans        &trans        &trans          &trans  &trans          &kp N0  &kp N4        &kp N5        &kp N6        &kp PLUS   &kp EQUAL
-&trans        &trans        &trans        &trans          &trans  &trans          &trans  &kp N7        &kp N8        &kp N9        &kp STAR   &trans
-              &trans        &trans        &studio_unlock  &trans  &trans          &trans  &trans        &trans        &trans        &trans
+&kp F12         &kp F1     &kp F2       &kp F3        &kp F4        &kp F5   &kp F6     &kp F7     &kp F8       &kp F9     &kp F10   &kp F11
+&trans          &trans     &trans       &trans        &trans        &trans   &trans     &trans     &kp UP       &trans     &trans    &trans
+&trans          &trans     &trans       &trans        &trans        &trans   &trans     &kp LEFT     &kp DOWN     &kp RIGHT  &trans    &trans
+&trans          &trans     &trans       &trans        &trans        &trans   &trans     &trans     &trans       &trans     &trans    &trans
+                &trans     &trans       &trans        &trans        &trans   &trans     &trans     &trans       &trans     &trans
             >;
         };
     };
